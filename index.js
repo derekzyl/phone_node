@@ -20,7 +20,7 @@ app.use(bodyParser.json())
 app.use('/api/todo', todoRoute)
 
 //local server connect
-const port = 3000
+const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`listening to port ${port}`)})
 
@@ -29,3 +29,4 @@ const db = 'mongodb+srv://derekzyl:derekzyl@cluster0.6kgd1.mongodb.net/myFirstDa
 mongoose.connect(db, {
   useNewUrlParser: true
 }).then(()=>console.log('database is now connected'))
+module.exports = app
